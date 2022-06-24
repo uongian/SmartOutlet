@@ -1,0 +1,5 @@
+# SmartOutlet
+byr's introductory homework
+
+Arduino的库文件是来自与GitHub上的ITEADLIB_Arduino_WeeESP8266-master
+再次基础上有所修改
