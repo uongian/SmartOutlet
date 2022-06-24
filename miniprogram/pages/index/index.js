@@ -36,7 +36,7 @@ Page({
           })
           wx.showToast({
             title: '电源是关闭状态',
-            duration:500,
+            duration:1000,
             icon:'success',
             mask:true,
           })
@@ -46,8 +46,8 @@ Page({
             'text':'插座通着电'
         })
           wx.showToast({
-            title: '电源是关开启态',
-            duration:500,
+            title: '电源是开启状态',
+            duration:1000,
             icon:'success',
             mask:true,
         })
@@ -112,7 +112,7 @@ Page({
                 })
                 wx.showToast({
                   title: '电源是关闭状态',
-                  duration:500,
+                  duration:10500,
                   icon:'success',
                   mask:true,
                 })
@@ -122,8 +122,8 @@ Page({
                   'text':'插座通着电'
               })
                 wx.showToast({
-                  title: '电源是关开启态',
-                  duration:500,
+                  title: '电源是开启状态',
+                  duration:1000,
                   icon:'success',
                   mask:true,
               })
