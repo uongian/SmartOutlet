@@ -1,23 +1,12 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <block wx:if="{{canIUseOpenData}}">
-      <view class="userinfo-avatar" bindtap="bindViewTap">
-        <open-data type="userAvatarUrl"></open-data>
-      </view>
-      <open-data type="userNickName"></open-data>
-    </block>
-    <block wx:elif="{{!hasUserInfo}}">
-      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
-    </block>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<!--<view style='width:100%;min-height:100%;background-image:url(https://upload-bbs.mihoyo.com/upload/2021/07/10/218246419/76d6cd22e1c731c31a683270cc84b439_1335455945857030866.jpg);background-size:100% 100%;'>
+-->
+<view class="tet">
+    <text>{{text}}</text>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <view class="container">
+    <view class="userinfo">
+      <button class='btn1' bindtap="GetDatapoints" style="position:relative;top:270px">刷新</button>
+      <button class='btn1' bindtap="SetDatapoints" style="position:relative;top:270px">改变开关状态</button>
+    </view>
   </view>
-</view>

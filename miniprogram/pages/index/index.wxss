@@ -1,4 +1,18 @@
 /**index.wxss**/
+page{/*页面背景—————统一浅灰*/
+
+  height:100%;
+}
+.tet {
+
+  width: 750rpx;
+  height: 200rpx;
+  display:flex;
+
+  justify-content:center;
+  font-size: 50rpx;
+  line-height: 200rpx;
+}
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -16,4 +30,16 @@
 
 .usermotto {
   margin-top: 200px;
+}
+
+.btn1 {
+  width:80%;
+  margin-top:130rpx;
+  background-color: rgb(106, 0, 95);
+  color: white;
+  border-radius: 98rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
