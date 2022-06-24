@@ -65,7 +65,7 @@ unsigned long net_time1 = millis(); //数据上传服务器时间
 bool flag=true;
 int i=0;
 void loop() {
-  Get();
+    bool a=Get();
   
     state = digitalRead(digitalPin);//读取//按键开关的状态
   //Serial.println(state);//将检测状态输出//到串口
@@ -116,11 +116,12 @@ void loop() {
 
     
       //sensor="TRUE";
-      Post(sensor);
+      Post(sensor,a);
   
       Serial.println("");
 }
-void Get(){
+bool Get(){
+    bool a=false;
     uint8_t buffer[1024] = {0};
     String GET;
     if (wifi.createTCP(HOST_NAME, HOST_PORT)) {
@@ -137,6 +138,7 @@ void Get(){
         Serial.println(n);
         if(n!=-1){
           flag=!flag;
+          a=true;
           Serial.println("llllllll");
         }else{
           Serial.println("2222222");
@@ -151,17 +153,22 @@ void Get(){
         } else {
             Serial.println("release tcp err\r\n");
         }
+  return a;
+        
   }
 
 
-void Post(String sensor){
+void Post(String sensor,bool a){
   if (wifi.createTCP(HOST_NAME, HOST_PORT)) { //建立TCP连接，如果失败，不能发送该数据
         Serial.print("create tcp ok\r\n");
         //拼接发送data字段字符串
         String jsonToSend = "{\"Station\":";
         jsonToSend += "\"" + sensor + "\"";
-        jsonToSend += ",\"Change\":";
-        jsonToSend += "\"FALSE\"";
+        if(a==true){
+          jsonToSend += ",\"Change\":";
+          jsonToSend += "\"FALSE\"";
+        }
+
         jsonToSend += "}";
   
         //拼接POST请求字符串
