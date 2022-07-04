@@ -3,15 +3,14 @@
 #include "SoftwareSerial.h"
 
 //配置ESP8266WIFI设置
-#define SSID "k"    //填写2.4GHz的WIFI名称，不要使用校园网
-#define PASSWORD "xhjxhjxhj"//填写自己的WIFI密码
+#define SSID ""    //填写2.4GHz的WIFI名称，不要使用校园网
+#define PASSWORD ""//填写自己的WIFI密码
 #define HOST_NAME "api.heclouds.com"  //API主机名称，连接到OneNET平台，无需修改
-#define DEVICE_ID "859642542"       //填写自己的OneNet设备ID
+#define DEVICE_ID ""       //填写自己的OneNet设备ID
 #define HOST_PORT (80)                //API端口，连接到OneNET平台，无需修改
-String APIKey = "z51k7ZIQCdjxhtnZKUgZHGIQI1g="; //与设备绑定的APIKey
+String APIKey = ""; //与设备绑定的APIKey
 
-
-#define SWITCH "GET http://api.heclouds.com/devices/859642542/datapoints?Station HTTP/1.1\napi-key:z51k7ZIQCdjxhtnZKUgZHGIQI1g=\nHost: api.heclouds.com\n\nConnection: close\r\n\r\n"
+#define SWITCH "GET http://api.heclouds.com/devices/设备id/datapoints?Station HTTP/1.1\n替换成自己的apikey\nHost: api.heclouds.com\n\nConnection: close\r\n\r\n"
 #define INTERVAL_SENSOR 500 //定义传感器采样及发送时间间隔
 
 //定义ESP8266所连接的软串口
@@ -46,12 +45,13 @@ void setup() {
   } else {
     Serial.print("to station err\r\n");
   }
+  
   if (wifi.joinAP(SSID, PASSWORD)) {
     //Serial.print("Join AP success\r\n");
     //Serial.print("IP: ");
     //Serial.println(wifi.getLocalIP().c_str());
   } else {
-    Serial.print("Join AP failure\r\n");
+    //Serial.print("Join AP failure\r\n");
   }
   
   mySerial.println("AT+UART_CUR=9600,8,1,0,0");
@@ -105,20 +105,11 @@ void loop() {
           break;
       }
   
-  
       Serial.print("station: ");
       Serial.print(sensor);
     
-
-      
-    
-    
-
-    
       //sensor="TRUE";
       Post(sensor,a);
-  
-      Serial.println("");
 }
 bool Get(){
     bool a=false;
